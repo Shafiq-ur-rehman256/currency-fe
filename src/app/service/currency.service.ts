@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CurrencyService {
 
-  private readonly baseUrl: string = 'http://localhost:3000/api/v1' 
+  private readonly baseUrl: string = 'https://currency-be-rho.vercel.app/api/v1' 
   constructor(
     private _http: HttpClient
   ) { }
