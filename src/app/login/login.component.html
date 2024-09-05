@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="text-center mt-5">
+            <img src="freecurrencyapi.png" width="300px" class="rounded" alt="logo">
+        </div>
+        <div class="col-md-4 col-sm-12 mt-5">
+            <form class="row justify-content-center" [formGroup]="authenticationForm">
+                <div class="col-md-12 mb-3">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="Username" formControlName="username">
+                </div>
+                <div class="col-md-12 mb-3">
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="password">
+                </div>
+                <button type="submit" class="btn btn-success col-md-10" (click)="authenticateUser()">Sign In</button>
+                <button type="submit" class="btn btn-primary col-md-10 mt-3" (click)="registerUser()">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+</div>

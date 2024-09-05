@@ -1,0 +1,28 @@
+.wrapper{
+    padding: 10px;
+    position: relative;
+    .convertorForm{
+        display: flex;
+        justify-content: start;
+        column-gap: 10px;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        // flex-direction: row;
+        .form-select{
+            width: 200px;
+        }
+    }
+    .spinner-container{
+        display: block;
+        // border: 1px solid black;
+        position: absolute;
+        left: 50%;
+        // width: 100% !important;
+        // .spinner{
+        //     width: 100%;
+            
+        // }
+    }
+}
+

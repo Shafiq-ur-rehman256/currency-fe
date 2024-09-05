@@ -1,0 +1,64 @@
+<div class="wrapper">
+    <form class="convertorForm" [formGroup]="convertorForm">
+
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Amount" formControlName="amount">
+            <span class="input-group-text" id="basic-addon2">
+                <select class="form-select" aria-label="Default select example" formControlName="baseCurrency">
+                    <option *ngFor="let currency of currencyList" [value]="currency.code">{{currency.code}}
+                        ({{currency.name}})</option>
+                </select>
+            </span>
+        </div>
+
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Converted Amount" formControlName="convertedAmount">
+            <span class="input-group-text" id="basic-addon2">
+                <select class="form-select" aria-label="Default select example" formControlName="targetCurrency">
+                    <option *ngFor="let currency of currencyList" [value]="currency.code">{{currency.code}}
+                        ({{currency.name}})</option>
+                </select>
+            </span>
+        </div>
+
+        <button *ngIf="!conversionStart" type="button" class="btn btn-outline-primary" (click)="convert()">Convert
+        </button>
+        <div
+        *ngIf="conversionStart"
+            class="justify-content-center" style="width: 40px; display: flex; justify-content: center; align-items: center;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </form>
+
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Base Currency</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Target Currency</th>
+                <th scope="col">Converted Amount</th>
+            </tr>
+        </thead>
+        <div *ngIf="loadingData" class="spinner-container">
+            <div class="spinner row justify-content-center">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+        </div>
+        <tbody *ngIf="!loadingData">
+            <tr *ngFor="let conversion of conversions ; let i = index">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>
+                    {{ conversion.baseCurrency }}
+                </td>
+                <td>{{ conversion.amount }}</td>
+                <td>{{ conversion.targetCurrency }}</td>
+                <td>{{ conversion.convertedAmount }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
